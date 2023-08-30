@@ -1,7 +1,8 @@
-FROM Alirvd/Alirvd:slim-buster
+FROM jepthoniq/Alirvd:slim-buster
 
 #clonning repo 
-RUN git clone https://github.com/Alirvd/ftags2.git /root/Alirvd
+RUN git clone
+ https://github.com/Alirvd /root/jepthon
 #working directory 
 WORKDIR /root/Alirvd
 
