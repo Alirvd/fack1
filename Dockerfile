@@ -1,8 +1,7 @@
-FROM jepthoniq/Alirvd:slim-buster
+FROM Alirvdiq/Alirvd:slim-buster
 
 #clonning repo 
-RUN git clone
- https://github.com/Alirvd /root/jepthon
+RUN git clone https://github.com/Alirvd /root/Alirvd
 #working directory 
 WORKDIR /root/Alirvd
 
