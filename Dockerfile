@@ -1,9 +1,9 @@
-FROM jepthoniq/jepthon:slim-buster
+FROM Alirvd/Alirvd:slim-buster
 
 #clonning repo 
-RUN git clone https://github.com/jepthoniq/jepthon.git /root/jepthon
+RUN git clone https://github.com/Alirvd/ftags2.git /root/Alirvd
 #working directory 
-WORKDIR /root/jepthon
+WORKDIR /root/Alirvd
 
 # Install requirements
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
