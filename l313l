@@ -3,8 +3,8 @@
 
 _get_ziplink () {
     local regex
-    regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "jepthoniq" ]]
+    regex= (https?)://github.com/.+/.+ 
+    if [[ $UPSTREAM_REPO == "Alirvd" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL2plcHRob25pcS9qZXB0aG9uL2FyY2hpdmUvSHVSZS56aXA=" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -23,8 +23,8 @@ _get_ziplink () {
 _get_repolink () {
     local regex
     local rlink
-    regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "jepthoniq" ]]
+    regex= (https?)://github.com/.+/.+ 
+    if [[ $UPSTREAM_REPO == "Alirvd" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL2plcHRob25pcS9qZXB0aG9uLmdpdA==" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -42,28 +42,28 @@ _run_python_code() {
 }
 
 _run_catpack_git() {
-    $(_run_python_code 'from git import Repo
+    $(_run_python_code  from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO = "https://github.com/jepthoniq/jepthon"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/Alirvd/ftags2.git"
 ACTIVE_BRANCH_NAME = "HuRe"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
 origin.fetch()
 repo.create_head(ACTIVE_BRANCH_NAME, origin.refs[ACTIVE_BRANCH_NAME])
-repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
+repo.heads[ACTIVE_BRANCH_NAME].checkout(True)  )
 }
 
 _run_cat_git() {
     local repolink=$(_get_repolink)
-    $(_run_python_code 'from git import Repo
+    $(_run_python_code  from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO="'$repolink'"
-ACTIVE_BRANCH_NAME = "'$UPSTREAM_REPO_BRANCH'" or "HuRe"
+OFFICIAL_UPSTREAM_REPO=" $repolink "
+ACTIVE_BRANCH_NAME = " $UPSTREAM_REPO_BRANCH " or "HuRe"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
 origin.fetch()
 repo.create_head(ACTIVE_BRANCH_NAME, origin.refs[ACTIVE_BRANCH_NAME])
-repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
+repo.heads[ACTIVE_BRANCH_NAME].checkout(True)  )
 }
 
 _set_bot () {
